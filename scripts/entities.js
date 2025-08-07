@@ -138,7 +138,7 @@ class Player extends E
     }
     bac()
     {   let t = this;
-       sword(t, t.x, -t.n, t.A,'red', t.W);
+        sword(t, t.x, -t.n, t.A,'red', t.W);
         
         han(t, -t.n, 0, t.A, wh,0);
         han(t, t.n, t.w*3/4, 0, wh,0);

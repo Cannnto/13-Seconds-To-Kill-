@@ -138,20 +138,7 @@ class Door extends Tile //Door tile
         //player checker hitbox
         if(this.C(pbx) && cpd)//resets all variables needed and changes floor level when collided
         {   clv++;
-            k.x = SpawnPoints[clv].x;
-            k.y = SpawnPoints[clv].y;
-            k.t.c = k.t.m;
-            ENE = [];
-            blo = [];
-            par = [];
-            k.bal = [];
-            cpd = 0;
-            tles2 = [];
-            tles = [];
-            endTimes = [];
-            times = [];
-            mps = [];
-            enC = 0;
+            pass();
             clv==12 && ENE.push(new Dre(canvas.width/2,canvas.height/2,128,128));
         }
     }

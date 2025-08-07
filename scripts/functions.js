@@ -1,7 +1,13 @@
-document.addEventListener("keydown", kD);
+document.addEventListener("keydown", (event)=>key[event.keyCode] = 1);
 document.addEventListener("keyup", kU);
-document.addEventListener("mousemove",mM);
-document.addEventListener("mouseup",mU);
+document.addEventListener("mousemove",(event)=>
+{   mou.x = event.x- canvas.getBoundingClientRect().left;
+    mou.y = event.y- canvas.getBoundingClientRect().top;
+});
+document.addEventListener("mouseup",(event)=>
+{   if(event.button == 0 && !k.D)k.atk = 1;
+    if(event.button == 2 && !k.M.c && !k.D) k.fAk = 1;
+});
 document.addEventListener('contextmenu', a=> {a.preventDefault()})
 var M=Math;
 var key = [];
@@ -16,17 +22,21 @@ function mU(event)
     if(event.button == 2 && !k.M.c && !k.D) k.fAk = 1;
 }
 
-function mM(event)
-{   mou.x = event.x- canvas.getBoundingClientRect().left;
-    mou.y = event.y- canvas.getBoundingClientRect().top;
-}
-
-function kD(event)
-{   key[event.keyCode] = 1;
-    //console.log(event.keyCode)
-}
+var date, godmodeIndex = 0, godmode = 'paje', cheat;
 function kU(event)
 {   key[event.keyCode] = 0;
+    // godmode
+    if(event.key == godmode.charAt(godmodeIndex) && (Date.now()-date) < 150)
+    {   date = Date.now();
+        godmodeIndex++;
+        if(godmodeIndex == godmode.length && cheat !== 0) cheat = 1;
+    }
+    else    
+        godmodeIndex = 0;
+    
+    if(event.key == godmode.charAt(0) && godmodeIndex == 0)
+    	date = Date.now(), godmodeIndex++;
+    
 }
 function Rect(x,y,w,h,c)
 {   ctx.fillStyle = c;
@@ -197,4 +207,20 @@ function count()
         }
         times[i]++;
     }
+}
+pass = () =>
+{   k.x = SpawnPoints[clv].x;
+    k.y = SpawnPoints[clv].y;
+    k.t.c = k.t.m;
+    ENE = [];
+    blo = [];
+    par = [];
+    k.bal = [];
+    cpd = 0;
+    tles2 = [];
+    tles = [];
+    endTimes = [];
+    times = [];
+    mps = [];
+    enC = 0;
 }

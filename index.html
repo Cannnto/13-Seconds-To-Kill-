@@ -77,7 +77,9 @@
     k = new Player(canvas.width/2, canvas.height/3 , 64, 64),
     All = [],F = [],
     hud = new Hud(),
-    t = new V(0,0);
+    t = new V(0,0),
+    transicion = 0,
+    traCount = 0;
     //menu loop variavels
     var plM = new Player(canvas.width/2-100, canvas.height/2+100, 400, 400),
     a = {x:-127.5, y:500,w:canvas.width*1.25,h:canvas.width*1.25},
@@ -96,14 +98,15 @@
     var mu = zzfxP(...bu);
     mu.loop = 1;
 
+
     function menu()
     {   Rect(0,0,canvas.width,canvas.height,'black');
         for (let i = 0; i < 20; i++) par.push(new Par(p, 'pur',0,1));
         for(let i = 0; i<par.length; i++)   d(par[i],0,0) && par[i].draw();
         upT(par);
-        sB(15,'purple')
         DFb(a);
         DFh(a);
+        sB(15,'purple')
         sB(0,'purple')
         sB(10,'purple');
         text(canvas.width/2, canvas.height/8, '13-Seconds-To-Kill', canvas.width/10, 'purple');
@@ -162,6 +165,19 @@
         
         times && count();
         (tBX.t) ? (dlg(tBX.sTX, tBX.clr, tBX.t) , tBX.t--, document.addEventListener("keyup", dS)): ((tBX.aTX != "") ? adT(tBX.aTX, tBX.clr, tBX.cTM): null);
+
+        if(cheat)
+        {   cheat = 0;
+            transicion = 1;
+            clv = 12;
+            pass();
+            ENE.push(new Dre(canvas.width/2,canvas.height/2,128,128));
+        }
+        if(transicion)
+        {   for (let i = 0; i < 100; i++) par.push(new Par(p, 'pur',0,1));
+            traCount++;
+            traCount==5 && (transicion = 0);
+        }
     }
 
     function dead(){

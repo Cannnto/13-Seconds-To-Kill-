@@ -34,7 +34,7 @@ function nex(e,dx,dy)
 //draw the dirty tile
 function dir(e,rt)
 {   i(e);
-    (e,rt);
+    rotateEntity(e,rt);
         Rect(x+w*0.4/3,y+h*1.6/3,w/5,h/5,'#4C4C4C');
         Rect(x+w*1.7/3,y+h*2/3,w/3,h/4,'#4C4C4C');
         Rect(x+w*0.2/3,y+h*0.2/3,w/3,h/3,'#333333');
